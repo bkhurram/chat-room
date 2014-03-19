@@ -1,0 +1,34 @@
+<html>
+<head>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="chat-box">
+	  <div class="chat" id="chat"></div>
+    <div class="onlineusers" id="onlineusers"></div>
+  </div>
+  <div class="clear"></div>
+	<input type="text" id="testo" class="input-text" />
+	<input type="button" id="invia" value="invia" class="btn"/>
+  
+  <script type="text/javascript" src ="//code.jquery.com/jquery-1.10.2.min.js"></script>
+  <script type="text/javascript" src ="/socket.io/socket.io.js"></script>
+  <script type="text/javascript" src ="chat.js"></script>
+  
+	<script type="text/javascript">
+  $(function() {
+    $( document ).on( "keydown", "#testo", function( event ) {
+      // # enter
+      if( event.keyCode == 13 ) {
+        $( "#invia" ).trigger( "click" );
+      }
+    });
+    
+    // # on click button send message
+		$( document ).on( "click", "#invia", function() {
+      sendMessage();
+    });
+  });
+  </script>
+</body>
+</html>

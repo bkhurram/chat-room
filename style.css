@@ -1,0 +1,41 @@
+.chat-box{
+  width: 100%;
+}
+.chat{
+  width: 90%;
+  height: 400px;
+  overflow: auto;
+  float:left;
+}
+.onlineusers{
+  width: 9%;
+  height: 400px;
+  overflow: auto;
+  float:left;
+  text-align: right;
+  border-left: 2px solid #A0A0A0;
+}
+.clear, .clear:before, .clear:after{
+  clear: both;
+}
+.message-box .message{
+  float: left;
+  margin-left: 20px;
+}
+.message-box .utente{
+  float: left;
+}
+.message-box .date{
+  float: right;
+}
+
+.input-text{
+  float: left;
+  width: 90%;
+  border: 1px solid;
+}
+
+.btn{
+  float: left;
+  width: 10%;
+}

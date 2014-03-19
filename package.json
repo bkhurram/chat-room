@@ -1,0 +1,10 @@
+{
+    "name": "chat room",
+    "version": "0.0.1",
+    "description": "chat room",
+    "dependencies": {
+        "socket.io": "latest"
+    },
+  
+    "author": "Khurram Bashir"
+}
