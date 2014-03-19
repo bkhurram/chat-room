@@ -1,5 +1,3 @@
-// Example Node.js App
-// Save this to server.js in your project directory.
 var http = require('http');
 var port = process.env.PORT || 3000;
 var host = process.env.HOST || '0.0.0.0';
@@ -14,7 +12,8 @@ var mime = require( "mime" );
 var people = {}; //[];
 var user = {};
 var messageObj = {};
-// # 
+
+// # use database 
 //require( "./database" );
 
 app.listen( port, host );
@@ -24,15 +23,15 @@ function handler(req, res) {
   var uri = url.parse( req.url, true );
   var filename = path.join( ".", uri.pathname );
   
-  fs.readFile( filename, function (err, data) {
+  fs.readFile( filename, function ( err, data ) {
     
     if( err ) {
       res.writeHead( 500 );
       console.log( err );
-      return res.end( 'Error loading file ' + filename );
+      return res.end( "Error loading file " + filename );
     }
     
-    res.writeHead( 200, "Content-Type: " + mime.lookup(filename) );
+    res.writeHead( 200, "Content-Type: " + mime.lookup( filename ) );
     res.end( data );
     
   })
@@ -96,9 +95,10 @@ chat.on( 'connection', function ( client ) {
       messageObj.message = "You have connected to the server.";
       client.emit( "message", messageObj );
     
-      console.log( "people" );
-      console.log( people );
-      updatePeople( people );
+      // # update user list
+      chat.emit( "update-people", people );
+    
+      console.log( "utente connesso" );
   });
   
   // # ON DISCONNECT
@@ -113,24 +113,17 @@ chat.on( 'connection', function ( client ) {
     };
     
     client.broadcast.emit( "message", messageObj );
-              
+    
+    // # remove user
     delete people[ client.id ];
+    
+    // # update user list
+    chat.emit( "update-people", people );
+    
     console.log( "utente disconnesso" );
-    updatePeople( people );
+    
   });
 
 });
 
 console.log( "Server running at " + host + ":" + port );
-
-var updatePeople = function( people ) {
-  var i, users = [];
-  //console.log( people );
-  //for( i = 0; i < people.length; i++ ) {
-    //users.push( people.nickname );
-  //}
-  
-  chat.emit( "update-people", people );
-
-  //io.sockets.emit('update-people', people);
-}

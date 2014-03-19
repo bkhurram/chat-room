@@ -1,10 +1,33 @@
 {
-    "name": "chat room",
-    "version": "0.0.1",
-    "description": "chat room",
-    "dependencies": {
-        "socket.io": "latest"
-    },
+  "name": "chat-room",
+  "version": "0.0.1",
+  "description": "chat room with node.js",
   
-    "author": "Khurram Bashir"
+  "author": {
+    "name": "Khurram Bashir",
+    "email": "bkhurram.619@gmail.com",
+    "url": "www.khurram-bashir.com"
+  },
+  
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:bkhurram/chat-room.git"
+  },
+  
+  "dependencies": {
+    "socket.io": "latest",
+    "connect": "latest",
+    "mime": "latest",
+    "node-mysql": "~0.3.7"
+  },
+  
+  "engines": {
+    "node": ">=0.8.0"
+  },
+  
+  "private": true,
+  "licenses": [{
+      "type": "GPL2",
+      "url": "https://raw.github.com/bkhurram/chat-room/master/LICENSE"
+  }]
 }
