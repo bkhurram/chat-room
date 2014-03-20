@@ -5,7 +5,7 @@
     npm install
     
 3. run node application with:
-    node app.js
+    node server.js
     
 4. go to address:
      website:3000/index.html
